@@ -45,7 +45,7 @@ module.exports.getById = function(req, res){
 
 module.exports.update = function(req, res){
      const _id = req.params.id;
-     const result = Student.findByIdAndUpdate({_id:_id}, req.body, function(err, data){
+     Student.findByIdAndUpdate({_id:_id}, req.body, function(err, data){
           if(err){
                console.log(err);
           } else {
@@ -53,4 +53,16 @@ module.exports.update = function(req, res){
           }
      });
      //res.send(result);
+}
+
+module.exports.delete = function(req, res){
+     const id = req.params.id;
+     Student.findByIdAndDelete({_id:id}, function(err, data){
+          if(err){
+               console.log(err);
+          } else {
+               res.send({message:"deleted"});
+          }
+     })
+     
 }

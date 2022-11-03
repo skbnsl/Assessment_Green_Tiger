@@ -11,5 +11,6 @@ router.post('/add', userController.add);
 router.get('/getById/:id', userController.getById);
 
 router.put('/update/:id', userController.update);
+router.delete('/delete/:id', userController.delete);
 
 module.exports = router;
