@@ -1,3 +1,4 @@
+const { application } = require('express');
 const Student = require('../schema/user');
 
 module.exports.add = function(req, res){
@@ -40,4 +41,16 @@ module.exports.getById = function(req, res){
           }
 
      })
+}
+
+module.exports.update = function(req, res){
+     const _id = req.params.id;
+     const result = Student.findByIdAndUpdate({_id:_id}, req.body, function(err, data){
+          if(err){
+               console.log(err);
+          } else {
+               res.send(data);
+          }
+     });
+     //res.send(result);
 }

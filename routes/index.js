@@ -10,4 +10,6 @@ router.post('/add', userController.add);
 
 router.get('/getById/:id', userController.getById);
 
+router.put('/update/:id', userController.update);
+
 module.exports = router;
